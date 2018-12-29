@@ -2,6 +2,15 @@
 
 > Sample Vue.js Project
 
+##### What's inside
+* [Nuxt](https://nuxtjs.org/) Nuxt.js is a framework for creating Vue.js applications.
+* [Koa](https://koajs.com/) Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs.
+* [Axios](https://github.com/axios/axios) Promise based HTTP client for the browser and node.js
+* [Eslint](https://eslint.org/) The pluggable linting utility for JavaScript and JSX
+* [Prettier](https://prettier.io/) Prettier is an opinionated code formatter
+* [cross-env](https://www.npmjs.com/package/cross-env) Run scripts that set and use environment variables across platforms
+
+
 ## Build Setup
 
 ``` bash
