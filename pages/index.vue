@@ -1,24 +1,12 @@
 <template>
-  <ProductGrid>
-    <Product v-for="item in products" :key="item.id" :data="item"/>
-  </ProductGrid>
+  <ProductList/>
 </template>
 
 <script>
-import Product from '../components/Product'
-import ProductGrid from '../components/ProductGrid'
+import ProductList from '../components/ProductList'
 export default {
   components: {
-    Product,
-    ProductGrid
-  },
-  computed: {
-    products() {
-      return this.$store.state.products.result
-    }
-  },
-  async fetch({ store, params }) {
-    await store.dispatch('GET_PRODUCTS')
+    ProductList
   }
 }
 </script>

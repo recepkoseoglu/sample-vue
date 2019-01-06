@@ -1,11 +1,13 @@
 <template>
   <div>
-    <navigator/>
-    <container>
-      <panel>
-        <nuxt/>
-      </panel>
-    </container>
+    <no-ssr>
+      <navigator/>
+      <container>
+        <panel>
+          <nuxt/>
+        </panel>
+      </container>
+    </no-ssr>
   </div>
 </template>
 
@@ -36,6 +38,8 @@ html {
 
 body {
   background-color: #f1f5f8;
+  font-family: arial;
+  font-size: 14px;
 }
 
 *,

@@ -8,7 +8,6 @@ export const Wrapper = styled.a`
   text-decoration: none;
   color: inherit;
   > figure {
-    width: 180px;
     height: 180px;
     margin: 0 auto;
   }
@@ -24,8 +23,9 @@ export const Title = styled.div`
   line-height: 20px;
   font-size: 16px;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 20px auto;
   max-height: 40px;
+  max-width: 200px;
   overflow: hidden;
   color: dimgray;
 `

@@ -1,3 +1,7 @@
-import products from './products'
+import categories from './categories'
+import productList from './productList'
 
-export default { products }
+export default {
+  productList,
+  categories
+}
