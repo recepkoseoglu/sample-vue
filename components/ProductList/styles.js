@@ -22,13 +22,20 @@ export const GridWrapper = styled.div`
 
 export const ProductWrapper = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns:
+    minmax(180px, 25%)
+    minmax(180px, 25%)
+    minmax(180px, 25%)
+    minmax(180px, 25%);
   grid-gap: 10px;
   @media (max-width: 1100px) {
-    grid-template-columns: auto auto auto;
+    grid-template-columns:
+      minmax(180px, 33%)
+      minmax(180px, 33%)
+      minmax(180px, 33%);
   }
   @media (max-width: 850px) {
-    grid-template-columns: auto auto;
+    grid-template-columns: minmax(180px, 50%) minmax(180px, 50%);
   }
 `
 

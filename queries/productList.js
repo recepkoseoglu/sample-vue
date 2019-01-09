@@ -1,10 +1,12 @@
 const query = `
   query result(
     $page: Int,
-    $categoryId: Int,
+    $categorySlug: String,
+    $brandSlug: [String],
     $parentCategoryId: Int,
+    $hasCategory: Boolean!,
     ){
-      products(_limit: 50, _page: $page, categoryId: $categoryId) {
+      products(_limit: 16, _page: $page, categorySlug: $categorySlug, brandSlug: $brandSlug) {
         totalCount
         result {
           name 
@@ -13,7 +15,7 @@ const query = `
           url  
         }
       }
-      categories(parentId: $parentCategoryId) {
+      categories(parentSlug: $categorySlug, parentId: $parentCategoryId) {
         totalCount
         result {
           name
@@ -21,7 +23,7 @@ const query = `
           id
         }
       }
-      brands{
+      brands(_limit: 1000){
         totalCount
         result {
           name
@@ -29,7 +31,7 @@ const query = `
           id
         }
       }
-      breadcrumb(categoryId: $categoryId){
+      breadcrumb(categorySlug: $categorySlug) @include(if: $hasCategory){
         name
         slug
         id

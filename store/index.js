@@ -5,41 +5,47 @@ export const state = () => ({
   products: {},
   categories: {},
   brands: {},
-  breadcrumbs: []
+  breadcrumbs: [],
+  brandName: '',
+  filteredBrands: []
 })
 
 export const mutations = {
-  SET_PRODUCTS(state, data) {
+  SET_INDEX_DATA(state, data) {
     state.products = data.products
     state.categories = data.categories
     state.brands = data.brands
-    state.breadcrumbs = data.breadcrumb
+    state.filteredBrands = data.brands.result
+    state.breadcrumbs = data.breadcrumb || []
+  },
+  SET_BRAND_DATA(state, data) {
+    state.brandName = data.brandName
+    state.filteredBrands = data.filteredBrands
   }
 }
 
 export const actions = {
   async nuxtServerInit({ commit }, { route }) {
-    const categorySlug = route.params.category
+    const { category: categorySlug, brands = '' } = route.params
     const { page = '1' } = route.query
     const variables = {
       page: parseInt(page),
-      parentCategoryId: 0
+      categorySlug,
+      hasCategory: !!categorySlug,
+      brandSlug: brands.split('-')
     }
-    if (categorySlug) {
-      let res = await axios.post('http://graphql.simplesampleapp.com', {
-        query: queries.categories,
-        variables: {
-          slug: categorySlug
-        }
-      })
-      variables.categoryId = res.data.data.categories.result[0].id
-      variables.parentCategoryId = variables.categoryId
+    if (!categorySlug) {
+      variables.parentCategoryId = 0
     }
-
     let res = await axios.post('http://graphql.simplesampleapp.com', {
       query: queries.productList,
       variables
     })
-    commit('SET_PRODUCTS', res.data.data)
+    commit('SET_INDEX_DATA', res.data.data)
+  },
+  SET_BRAND_NAME({ state, commit }, brandName) {
+    const reqex = new RegExp(brandName, 'gi')
+    const filteredBrands = state.brands.result.filter(i => reqex.test(i.name))
+    commit('SET_BRAND_DATA', { brandName, filteredBrands })
   }
 }

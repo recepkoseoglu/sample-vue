@@ -1,6 +1,6 @@
 <template>
   <wrapper>
-    <Item :href="'/'">Anasayfa</Item>
+    <Item :href="'/'" v-show="breadcrumb.length">Anasayfa</Item>
     <Item v-for="item in breadcrumb" :key="item.slug" :href="'/' + item.slug">{{ item.name }}</Item>
   </wrapper>
 </template>
