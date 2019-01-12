@@ -1,14 +1,12 @@
 <template>
-  <wrapper>
+  <div class="Container">
     <slot/>
-  </wrapper>
+  </div>
 </template>
 
-<script>
-import { Wrapper } from './styles'
-export default {
-  components: {
-    Wrapper
-  }
-}
-</script>
+<style lang="sass"  scoped>
+.Container
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+</style>

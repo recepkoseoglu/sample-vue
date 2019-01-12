@@ -1,6 +1,8 @@
 import axios from 'axios'
 import queries from '../queries'
 
+const graphql = process.env.GRAPHQL
+
 export const state = () => ({
   products: {},
   categories: {},
@@ -37,7 +39,7 @@ export const actions = {
     if (!categorySlug) {
       variables.parentCategoryId = 0
     }
-    let res = await axios.post('http://graphql.simplesampleapp.com', {
+    let res = await axios.post(graphql, {
       query: queries.productList,
       variables
     })
