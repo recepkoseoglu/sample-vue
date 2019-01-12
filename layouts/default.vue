@@ -1,13 +1,11 @@
 <template>
   <div>
-    <no-ssr>
-      <navigator/>
-      <container>
-        <panel>
-          <nuxt/>
-        </panel>
-      </container>
-    </no-ssr>
+    <navigator/>
+    <container>
+      <panel>
+        <nuxt/>
+      </panel>
+    </container>
   </div>
 </template>
 

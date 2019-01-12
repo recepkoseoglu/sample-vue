@@ -1,40 +1,28 @@
 <template>
-  <Wrapper>
-    <FilterWrapper>
+  <div class="ProductListWrapper">
+    <div class="FilterWrapper">
       <Filters/>
-    </FilterWrapper>
-    <GridWrapper>
-      <ProductWrapper>
+    </div>
+    <div class="GridWrapper">
+      <div class="ProductWrapper">
         <Product v-for="item in products" :key="item.id" :data="item"/>
-      </ProductWrapper>
-      <PaginationWrapper>
+      </div>
+      <div class="PaginationWrapper">
         <Pagination/>
-      </PaginationWrapper>
-    </GridWrapper>
-  </Wrapper>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import {
-  Wrapper,
-  FilterWrapper,
-  GridWrapper,
-  ProductWrapper,
-  PaginationWrapper
-} from './styles'
 import Product from '../Product'
 import Filters from '../Filters'
 import Pagination from '../Pagination'
 export default {
   components: {
-    Wrapper,
     Product,
     Filters,
-    Pagination,
-    FilterWrapper,
-    GridWrapper,
-    ProductWrapper,
-    PaginationWrapper
+    Pagination
   },
   computed: {
     products() {
@@ -43,3 +31,35 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.ProductListWrapper
+  display: flex;
+
+.FilterWrapper
+  min-height: 400px;
+  flex: 0 0 250px;
+  @media (max-width: 850px)
+    display: none;
+
+.GridWrapper
+  flex: 1;
+  padding: 0 10px;
+  @media (max-width: 850px)
+    padding: 0;
+
+.ProductWrapper
+  display: grid;
+  grid-template-columns: minmax(180px, 25%) minmax(180px, 25%) minmax(180px, 25%) minmax(180px, 25%);
+  grid-gap: 10px;
+  @media (max-width: 1100px)
+    grid-template-columns: minmax(180px, 33%) minmax(180px, 33%) minmax(180px, 33%);
+  @media (max-width: 850px)
+    grid-template-columns: minmax(180px, 50%) minmax(180px, 50%);
+
+.PaginationWrapper
+  grid-area: pagination;
+  min-height: 40px;
+  margin: 10px 0;
+
+</style>

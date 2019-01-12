@@ -1,14 +1,10 @@
 <template>
-  <wrapper>
+  <div class="Panel">
     <slot/>
-  </wrapper>
+  </div>
 </template>
 
-<script>
-import { Wrapper } from './styles'
-export default {
-  components: {
-    Wrapper
-  }
-}
-</script>
+<style lang="sass" scoped>
+.Panel
+  padding: 10px 15px;
+</style>
