@@ -19,13 +19,15 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-.Navigator
+<style lang="css" scoped>
+.Navigator {
   width: 100%;
   height: 60px;
   background-color: white;
   border-bottom: 1px solid #eee;
-  img
-    height: 26px;
-    text-align: center;
+}
+.Navigator img {
+  height: 26px;
+  text-align: center;
+}
 </style>

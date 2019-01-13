@@ -19,24 +19,27 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-.Wrapper
+<style lang="css" scoped>
+.Wrapper {
   border-radius: 4px;
   background-color: white;
   min-height: 200px;
   padding: 10px;
   text-decoration: none;
   color: inherit;
-  > figure
-    height: 180px;
-    margin: 0 auto;
-    > img
-      display: block;
-      height: 100%;
-      max-width: 100%;
-      margin: 0 auto;
+}
+.Wrapper figure {
+  height: 180px;
+  margin: 0 auto;
+}
+.Wrapper figure > img {
+  display: block;
+  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
 
-.Title
+.Title {
   line-height: 20px;
   font-size: 16px;
   font-weight: bold;
@@ -45,13 +48,14 @@ export default {
   max-width: 200px;
   overflow: hidden;
   color: dimgray;
+}
 
-.Price
+.Price {
   line-height: 20px;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin: 10px 0;
   color: red;
-
+}
 </style>

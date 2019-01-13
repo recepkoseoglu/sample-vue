@@ -32,34 +32,53 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-.ProductListWrapper
+<style lang="css" scoped>
+.ProductListWrapper {
   display: flex;
+}
 
-.FilterWrapper
+.FilterWrapper {
   min-height: 400px;
   flex: 0 0 250px;
-  @media (max-width: 850px)
-    display: none;
+}
 
-.GridWrapper
+.GridWrapper {
   flex: 1;
   padding: 0 10px;
-  @media (max-width: 850px)
-    padding: 0;
+}
 
-.ProductWrapper
+.ProductWrapper {
   display: grid;
-  grid-template-columns: minmax(180px, 25%) minmax(180px, 25%) minmax(180px, 25%) minmax(180px, 25%);
+  grid-template-columns:
+    minmax(180px, 25%) minmax(180px, 25%) minmax(180px, 25%)
+    minmax(180px, 25%);
   grid-gap: 10px;
-  @media (max-width: 1100px)
-    grid-template-columns: minmax(180px, 33%) minmax(180px, 33%) minmax(180px, 33%);
-  @media (max-width: 850px)
-    grid-template-columns: minmax(180px, 50%) minmax(180px, 50%);
+}
 
-.PaginationWrapper
+@media (max-width: 850px) {
+  .FilterWrapper {
+    display: none;
+  }
+  .GridWrapper {
+    padding: 0;
+  }
+  .ProductWrapper {
+    grid-template-columns: minmax(180px, 50%) minmax(180px, 50%);
+  }
+}
+
+@media (max-width: 1100px) {
+  .ProductWrapper {
+    grid-template-columns: minmax(180px, 33%) minmax(180px, 33%) minmax(
+        180px,
+        33%
+      );
+  }
+}
+
+.PaginationWrapper {
   grid-area: pagination;
   min-height: 40px;
   margin: 10px 0;
-
+}
 </style>

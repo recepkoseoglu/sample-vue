@@ -32,8 +32,8 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-.Wrapper
+<style lang="css" scoped>
+.Wrapper {
   height: 60px;
   background-color: white;
   display: grid;
@@ -42,22 +42,26 @@ export default {
   grid-column-gap: 20px;
   padding: 10px;
   line-height: 40px;
+}
 
-.Pervious
+.Pervious {
   grid-area: pervious;
   cursor: pointer;
   color: #41b883;
   font-weight: bold;
   display: block;
   text-decoration: none;
-  > div
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    text-align: center;
-    border: 1px solid #ddd;
+}
 
-.Next
+.Pervious div {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.Next {
   grid-area: next;
   justify-self: end;
   cursor: pointer;
@@ -65,18 +69,21 @@ export default {
   font-weight: bold;
   display: block;
   text-decoration: none;
-  > div
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    text-align: center;
-    border: 1px solid #ddd;
+}
+.Next > div {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
 
-.Pages
+.Pages {
   grid-area: pages;
   text-align: center;
+}
 
-.PageItem
+.PageItem {
   position: relative;
   height: 40px;
   border-radius: 20px;
@@ -88,12 +95,14 @@ export default {
   text-decoration: none;
   color: #41b883;
   margin: 0 10px;
-  &:empty
-    display: none;
-.ActivePageItem
+}
+.PageItem:empty {
+  display: none;
+}
+.ActivePageItem {
   border: 1px solid #ddd;
   color: white;
   background: #41b883;
   width: 40px;
-
+}
 </style>

@@ -16,22 +16,29 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-.Breadcrumb
+<style lang="css" scoped>
+.Breadcrumb {
   padding: 0 0 10px 0;
-  a
-    display: inline-block;
-    margin: 0 10px;
-    text-decoration: none;
-    color: inherit;
-    position: relative;
-    &:first-child
-      margin-left: 0;
-    &:last-child:after
-      display: none;
-    &:after
-      position: absolute;
-      content: '>';
-      top: 0;
-      right: -15px;
+}
+.Breadcrumb a {
+  display: inline-block;
+  margin: 0 10px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+.Breadcrumb a:first-of-type {
+  margin-left: 0px;
+}
+
+.Breadcrumb a:last-of-type::after {
+  display: none;
+}
+
+.Breadcrumb a::after {
+  position: absolute;
+  content: '>';
+  top: 0;
+  right: -15px;
+}
 </style>
