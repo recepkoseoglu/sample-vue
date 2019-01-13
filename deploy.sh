@@ -7,5 +7,5 @@ PACKAGE_VERSION=$(cat ./package.json \
 
 docker container kill sample-vue
 
-docker build --rm -f "Dockerfile" -t arasksgl/sample-vue:$PACKAGE_VERSION .
+docker build  -f "Dockerfile" -t arasksgl/sample-vue:$PACKAGE_VERSION .
 docker run --rm -d -p 4000:4000/tcp --name=sample-vue arasksgl/sample-vue:$PACKAGE_VERSION
