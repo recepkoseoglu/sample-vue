@@ -1,6 +1,6 @@
-FROM node:8
+FROM node:10
 
-WORKDIR /App
+WORKDIR /Vue
 
 COPY package*.json ./
 
