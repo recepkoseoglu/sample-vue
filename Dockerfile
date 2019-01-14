@@ -1,11 +1,14 @@
-FROM mhart/alpine-node:10
+FROM node:8
 
-ENV HOST 0.0.0.0
-
-ADD . /App
 WORKDIR /App
+
+COPY package*.json ./
+
 RUN npm install
+
+COPY . .
+
 RUN npm run build
 
-EXPOSE 80
+EXPOSE 4000
 CMD [ "npm", "start" ]
