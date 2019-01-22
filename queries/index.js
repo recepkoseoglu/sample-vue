@@ -1,5 +1,7 @@
-import productList from './productList'
+import list from './list'
+import home from './home'
 
 export default {
-  productList
+  list,
+  home
 }

@@ -16,7 +16,6 @@ const query = `
         }
       }
       categories(parentSlug: $categorySlug, parentId: $parentCategoryId) {
-        totalCount
         result {
           name
           slug
@@ -24,7 +23,6 @@ const query = `
         }
       }
       brands(_limit: 1000){
-        totalCount
         result {
           name
           slug
@@ -32,6 +30,11 @@ const query = `
         }
       }
       breadcrumb(categorySlug: $categorySlug) @include(if: $hasCategory){
+        name
+        slug
+        id
+      }
+      category(slug: $categorySlug) {
         name
         slug
         id

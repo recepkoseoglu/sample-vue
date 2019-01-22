@@ -1,20 +1,25 @@
 <template>
-  <div class="Filters">
-    <div class="FilterTitle" v-show="categories.length">Kategoriler</div>
-    <div class="Section">
+  <div class="filters">
+    <div class="filter-title" v-show="categories.length">Kategoriler</div>
+    <div class="section">
       <a
-        class="SectionItem"
+        class="section-item"
         v-for="item in categories"
         :key="item.id + item.slug"
         :href="categoryUrl(item.slug)"
       >{{ item.name }}</a>
     </div>
-    <div class="FilterTitle">Marka</div>
-    <input class="SearchInput" :value="brandName" @input="handleInput">
-    <div class="Section">
-      <a class="SectionItem" v-for="item in brands" :key="item.id" :href="brandUrl(item.slug)">
-        <div class="CheckboxContainer">
-          <input class="Checkbox" type="checkbox" :checked="isBrandSelected(item.slug)">
+    <div class="filter-title">Marka</div>
+    <input class="search-input" :value="valueOfBrand" @input="handleInput">
+    <div class="section">
+      <a
+        class="section-item"
+        v-for="item in filteredBrands"
+        :key="item.id"
+        :href="brandUrl(item.slug)"
+      >
+        <div class="checkbox-container">
+          <input class="checkbox" type="checkbox" disabled :checked="isBrandSelected(item.slug)">
           <span>{{ item.name }}</span>
         </div>
       </a>
@@ -24,17 +29,11 @@
 
 <script>
 import { urlDecoder } from '../../helpers/urlParser'
+import { mapState, mapGetters } from 'vuex'
 export default {
   computed: {
-    categories() {
-      return this.$store.state.categories.result
-    },
-    brands() {
-      return this.$store.state.filteredBrands
-    },
-    brandName() {
-      return this.$store.state.brandName
-    },
+    ...mapGetters('list', ['filteredBrands']),
+    ...mapState('list', ['valueOfBrand', 'categories']),
     brandUrl() {
       return slug => urlDecoder({ brand: slug }, null, this.$route)
     },
@@ -48,19 +47,19 @@ export default {
   },
   methods: {
     handleInput(value) {
-      this.$store.dispatch('SET_BRAND_NAME', value)
+      this.$store.commit('list/setbrandValue', value.target.value)
     }
   }
 }
 </script>
 
 <style lang="css" scoped>
-.Filters {
+.filters {
   padding: 0 15px 10px;
   background-color: white;
 }
 
-.FilterTitle {
+.filter-title {
   padding: 15px 0;
   margin-bottom: 10px;
   border-bottom: 1px solid #eee;
@@ -68,7 +67,7 @@ export default {
   font-weight: bold;
 }
 
-.SectionItem {
+.section-item {
   line-height: 20px;
   cursor: pointer;
   text-decoration: none;
@@ -76,26 +75,26 @@ export default {
   color: inherit;
 }
 
-.Section {
+.section {
   max-height: 400px;
   overflow: auto;
   padding: 10px 0;
 }
-.Section:empty {
+.section:empty {
   display: none;
 }
 
-.SearchInput {
+.search-input {
   width: 100%;
   display: block;
   height: 30px;
   padding: 0 10px;
 }
-.SearchInput:focus {
+.search-input:focus {
   outline: none;
 }
 
-.CheckboxContainer {
+.checkbox-container {
   position: relative;
   display: flex;
   line-height: 20px;
@@ -103,14 +102,15 @@ export default {
   margin: 5px 0;
 }
 
-.Checkbox {
+.checkbox {
   position: relative;
   margin-right: 25px;
   margin-top: 5px;
   padding: 0;
   cursor: pointer;
+  pointer-events: none;
 }
-.Checkbox:before {
+.checkbox:before {
   position: absolute;
   content: ' ';
   width: 18px;
@@ -121,14 +121,14 @@ export default {
   border: solid 2px #41b883;
   border-radius: 2px;
 }
-.Checkbox:focus::before {
+.checkbox:focus::before {
   border: solid 2px #41b883;
 }
-.Checkbox:checked::before {
+.checkbox:checked::before {
   background: #41b883;
   border: solid 2px #41b883;
 }
-.Checkbox:checked::after {
+.checkbox:checked::after {
   position: absolute;
   content: ' ';
   left: 4px;

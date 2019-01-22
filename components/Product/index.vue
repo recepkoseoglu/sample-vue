@@ -1,10 +1,10 @@
 <template>
-  <a class="Wrapper" :href="data.url" target="_blank">
+  <a class="wrapper" :href="data.url" target="_blank">
     <figure>
       <img :src="data.image">
     </figure>
-    <div class="Title">{{ data.name }}</div>
-    <div class="Price">{{ '$' + data.price }}</div>
+    <div class="title">{{ data.name }}</div>
+    <div class="price">{{ '$' + data.price }}</div>
   </a>
 </template>
 
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.Wrapper {
+.wrapper {
   border-radius: 4px;
   background-color: white;
   min-height: 200px;
@@ -28,18 +28,18 @@ export default {
   text-decoration: none;
   color: inherit;
 }
-.Wrapper figure {
+.wrapper figure {
   height: 180px;
   margin: 0 auto;
 }
-.Wrapper figure > img {
+.wrapper figure > img {
   display: block;
   height: 100%;
   max-width: 100%;
   margin: 0 auto;
 }
 
-.Title {
+.title {
   line-height: 20px;
   font-size: 16px;
   font-weight: bold;
@@ -50,7 +50,7 @@ export default {
   color: dimgray;
 }
 
-.Price {
+.price {
   line-height: 20px;
   font-size: 20px;
   font-weight: bold;

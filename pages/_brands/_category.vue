@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Breadcrumb />
+    <Breadcrumb/>
     <ProductList/>
   </div>
 </template>
@@ -12,6 +12,22 @@ export default {
   components: {
     ProductList,
     Breadcrumb
+  },
+  head(props) {
+    const cateogry = this.$store.state.list.category
+    if (!cateogry) {
+      return
+    }
+    return {
+      title: `${cateogry.name} | Nuxt.js E-Commerce Sample`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${cateogry.name} | Nuxt.js E-Commerce Sample Applicaiton`
+        }
+      ]
+    }
   }
 }
 </script>
