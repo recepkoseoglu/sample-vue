@@ -5,6 +5,7 @@
     </div>
     <div class="grid-wrapper">
       <div class="no-result" v-show="!products.length"> sory, no result for the selections :( </div>
+      <Order />
       <div class="product-wrapper">
         <Product v-for="item in products" :key="item.id" :data="item"/>
       </div>
@@ -19,13 +20,15 @@
 import Product from '../Product'
 import Filters from '../Filters'
 import Pagination from '../Pagination'
+import Order from '../Order'
 import { mapState } from 'vuex'
 
 export default {
   components: {
     Product,
     Filters,
-    Pagination
+    Pagination,
+    Order
   },
   computed: mapState('list', ['products'])
 }

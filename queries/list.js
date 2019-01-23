@@ -1,12 +1,13 @@
 const query = `
   query result(
     $page: Int,
+    $order: String,
     $categorySlug: String,
     $brandSlug: [String],
     $parentCategoryId: Int,
     $hasCategory: Boolean!,
     ){
-      products(_limit: 16, _page: $page, categorySlug: $categorySlug, brandSlug: $brandSlug) {
+      products(_limit: 16, _page: $page, _sort: "price", _order: $order, categorySlug: $categorySlug, brandSlug: $brandSlug) {
         totalCount
         result {
           name 

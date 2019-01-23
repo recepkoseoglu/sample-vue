@@ -39,9 +39,10 @@ export const mutations = {
 export const actions = {
   async initialFetch({ commit }, route) {
     const { category: categorySlug, brands = '' } = route.params
-    const { page = '1' } = route.query
+    const { page = '1', order = 'asc' } = route.query
     const variables = {
       page: parseInt(page),
+      order,
       categorySlug,
       hasCategory: !!categorySlug,
       brandSlug: brands.split('-')
