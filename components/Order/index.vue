@@ -1,7 +1,7 @@
 <template>
   <div class="sort">
-    <a :href="orderLink('asc')" :class="{ active: order === 'asc'}">Artan Fiyat</a>
-    <a :href="orderLink('desc')" :class="{ active: order === 'desc'}">Azalan Fiyat</a>
+    <a :href="orderLink('asc')" :class="{ active: order === 'asc'}">Increasing</a>
+    <a :href="orderLink('desc')" :class="{ active: order === 'desc'}">Decreasing</a>
   </div>
 </template>
 
@@ -32,9 +32,6 @@ export default {
     margin: 5px 10px
     text-align: center
     background-color: #fafafa
-    transition: all .2s ease-in-out
-    &:hover
-      transform: scale(1.06)
 .active 
   background-color: #dcdcdc !important
 

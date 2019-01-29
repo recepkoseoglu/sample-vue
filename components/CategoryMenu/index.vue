@@ -1,6 +1,10 @@
 <template>
   <div class="category-menu">
-    <a v-for="item in categories" :key="item.id" :href="'/' + item.slug">{{ item.name.replace('&', '\n') }}</a>
+    <a
+      v-for="item in categories"
+      :key="item.id"
+      :href="'/' + item.slug"
+    >{{ item.name.replace('&', '\n') }}</a>
   </div>
 </template>
 
@@ -25,9 +29,4 @@ export default {
     align-self: center
     padding: 10px
     cursor: pointer
-    transition: all .2s ease-in-out
-    font-weight: 600
-    &:hover
-      transform: scale(1.1)
-
 </style>

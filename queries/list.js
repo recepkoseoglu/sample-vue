@@ -13,7 +13,8 @@ const query = `
           name 
           price 
           image 
-          url  
+          url
+          id
         }
       }
       categories(parentSlug: $categorySlug, parentId: $parentCategoryId) {

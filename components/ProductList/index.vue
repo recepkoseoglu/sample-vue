@@ -5,7 +5,7 @@
     </div>
     <div class="grid-wrapper">
       <div class="no-result" v-show="!products.length"> sory, no result for the selections :( </div>
-      <Order />
+      <Order v-show="products.length" />
       <div class="product-wrapper">
         <Product v-for="item in products" :key="item.id" :data="item"/>
       </div>

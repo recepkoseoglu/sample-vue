@@ -14,7 +14,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="https://res.cloudinary.com/arasksgl/image/upload/v1547639157/github.png">
+              <img src="https://res.cloudinary.com/arasksgl/image/upload/v1548614566/github.png">
             </a>
           </div>
         </div>
@@ -34,24 +34,20 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
-.navigator {
-  width: 100%;
-  background-color: white;
-  border-bottom: 1px solid #eee;
-}
-.navigator img {
-  height: 40px;
-  text-align: center;
-}
-.navigator-content {
-  display: flex;
-}
-.navigator-content > div:first-child {
-  flex: 1;
-}
-.navigator-content > div:last-child {
-  text-align: end;
-  flex: 0;
-}
+<style lang="sass" scoped>
+.navigator
+  width: 100%
+  background-color: white
+  border-bottom: 1px solid #eee
+  img
+    height: 40px
+    text-align: center
+
+.navigator-content
+  display: flex
+  > div:first-child
+    flex: 1
+  > div:last-child
+    text-align: end
+    flex: 0
 </style>
