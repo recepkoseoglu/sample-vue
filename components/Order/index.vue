@@ -28,7 +28,7 @@ export default {
     flex: 0 0 25%
     text-decoration: none
     color: inherit
-    padding: 10px 0
+    padding: 10px
     margin: 5px 10px
     text-align: center
     background-color: #fafafa

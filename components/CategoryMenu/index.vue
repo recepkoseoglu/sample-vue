@@ -29,4 +29,6 @@ export default {
     align-self: center
     padding: 10px
     cursor: pointer
+  @media(max-width: 576px)
+    display: none
 </style>

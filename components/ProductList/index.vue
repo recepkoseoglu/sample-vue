@@ -4,8 +4,8 @@
       <Filters/>
     </div>
     <div class="grid-wrapper">
-      <div class="no-result" v-show="!products.length"> sory, no result for the selections :( </div>
-      <Order v-show="products.length" />
+      <div class="no-result" v-show="!products.length">sory, no result for the selections :(</div>
+      <Order v-show="products.length"/>
       <div class="product-wrapper">
         <Product v-for="item in products" :key="item.id" :data="item"/>
       </div>
@@ -57,7 +57,13 @@ export default {
   grid-gap: 10px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 768px) {
+  .product-wrapper {
+    grid-template-columns: minmax(180px, 50%) minmax(180px, 50%)
+  }
+}
+
+@media (max-width: 576px) {
   .filter-wrapper {
     display: none;
   }
@@ -65,16 +71,7 @@ export default {
     padding: 0;
   }
   .product-wrapper {
-    grid-template-columns: minmax(180px, 50%) minmax(180px, 50%);
-  }
-}
-
-@media (max-width: 1100px) {
-  .product-wrapper {
-    grid-template-columns: minmax(180px, 33%) minmax(180px, 33%) minmax(
-        180px,
-        33%
-      );
+    grid-template-columns: auto;
   }
 }
 
@@ -88,6 +85,6 @@ export default {
   text-align: center;
   padding: 40px 0;
   font-size: 30px;
-  opacity: .5;
+  opacity: 0.5;
 }
 </style>
